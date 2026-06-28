@@ -53,5 +53,13 @@ class ProductoController extends Controller
         }
     }
 
-    
+    public function eliminar(): void
+    {
+        $id = (int) ($_GET['id'] ?? 0);
+        if ($id > 0) {
+            $this->model->delete($id);
+        }
+
+        $this->redirect('index.php?controller=producto&action=index');
+    }
 }
