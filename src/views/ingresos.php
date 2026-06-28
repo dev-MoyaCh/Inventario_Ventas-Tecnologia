@@ -20,12 +20,7 @@
             </thead>
             <tbody>
                 <?php foreach ($ingresos as $ingreso): ?>
-                    <tr>
-                        <td><?= date('d/m/Y H:i', strtotime($ingreso['Fecha_Ingreso'])) ?></td>
-                        <td><?= htmlspecialchars($ingreso['ProductoNombre']) ?></td>
-                        <td><?= htmlspecialchars($ingreso['ProveedorNombre']) ?></td>
-                        <td><span class="badge bg-success"><?= $ingreso['Cantidad'] ?></span></td>
-                    </tr>
+                   
                 <?php endforeach; ?>
             </tbody>
         </table>
