@@ -27,7 +27,7 @@
                                 <?= $p['Stock'] ?>
                             </span>
                         </td>
-                        <td>$<?= number_format($p['Precio'], 2) ?></td>
+                        <td>S/<?= number_format($p['Precio'], 2) ?></td>
                         <td>
                             <a href="index.php?controller=producto&action=eliminar&id=<?= $p['ID_Producto'] ?>" 
                                class="btn btn-sm btn-danger"
