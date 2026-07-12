@@ -10,11 +10,11 @@ class Database {
     private PDO $pdo;
 
     private function __construct() {
-        $host = 'localhost';
-        $db   = 'bd_inventario';  // Nombre de tu nueva BD
+        $host = 'db';  
+        $db = 'bd_inventario';
         $user = 'root';
-        $pass = '';
-
+        $pass = 'rootpassword';  
+        
         try {
             $this->pdo = new PDO(
                 "mysql:host=$host;dbname=$db;charset=utf8mb4",
