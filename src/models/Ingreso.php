@@ -15,7 +15,7 @@ class Ingreso extends Model {
             FROM Ingresos i
             INNER JOIN Productos p ON i.ID_Producto = p.ID_Producto
             INNER JOIN Proveedores pr ON i.ID_Proveedor = pr.ID_Proveedor
-            ORDER BY i.Fecha_Ingreso DESC
+            ORDER BY i.Fecha_Ingreso ASC
         ");
         return $stmt->fetchAll();
     }

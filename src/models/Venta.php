@@ -13,7 +13,7 @@ class Venta extends Model {
             SELECT v.*, p.Nombre as ProductoNombre
             FROM Ventas v
             INNER JOIN Productos p ON v.ID_Producto = p.ID_Producto
-            ORDER BY v.Fecha_Venta DESC
+            ORDER BY v.ID_Venta ASC
         ");
         return $stmt->fetchAll();
     }

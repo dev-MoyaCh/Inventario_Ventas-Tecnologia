@@ -9,7 +9,7 @@ class Proveedor extends Model {
     protected string $primaryKey = 'ID_Proveedor';
 
     public function getAll(): array {
-        $stmt = $this->db->query("SELECT * FROM Proveedores ORDER BY Razon_Social ASC");
+        $stmt = $this->db->query("SELECT * FROM Proveedores ORDER BY ID_Proveedor ASC");
         return $stmt->fetchAll();
     }
 

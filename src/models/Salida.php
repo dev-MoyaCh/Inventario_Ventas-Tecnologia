@@ -14,7 +14,7 @@ class Salida extends Model {
             SELECT s.*, p.Nombre as ProductoNombre
             FROM Salidas s
             INNER JOIN Productos p ON s.ID_Producto = p.ID_Producto
-            ORDER BY s.Fecha_Salida DESC
+            ORDER BY s.Fecha_Salida ASC
         ");
         return $stmt->fetchAll();
     }

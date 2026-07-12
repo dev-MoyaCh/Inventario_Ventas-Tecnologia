@@ -9,7 +9,7 @@ class Producto extends Model {
     protected string $primaryKey = 'ID_Producto';
 
     public function getAll(): array {
-        $stmt = $this->db->query("SELECT * FROM Productos ORDER BY Nombre ASC");
+        $stmt = $this->db->query("SELECT * FROM Productos ORDER BY ID_Producto ASC");
         return $stmt->fetchAll();
     }
 
