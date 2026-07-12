@@ -1,79 +1,73 @@
-<div class="container mt-4">
-    <h1 class="mb-4">📊 Dashboard</h1>
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>📦 Productos</h1>
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalProducto">
+        ➕ Nuevo Producto
+    </button>
+</div>
 
-    <div class="row">
-        <div class="col-md-3 mb-3">
-            <div class="card bg-primary text-white">
-                <div class="card-body">
-                    <h5 class="card-title">📦 Productos</h5>
-                    <h2><?= $stats['productos'] ?></h2>
-                    <small>Registrados</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card bg-success text-white">
-                <div class="card-body">
-                    <h5 class="card-title">📊 Stock Total</h5>
-                    <h2><?= $stats['stock_total'] ?></h2>
-                    <small>Unidades en inventario</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card bg-warning text-white">
-                <div class="card-body">
-                    <h5 class="card-title">💰 Valor Inventario</h5>
-                    <h2>$<?= number_format($stats['valor_inventario'], 2) ?></h2>
-                    <small>Valor total</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-3 mb-3">
-            <div class="card bg-info text-white">
-                <div class="card-body">
-                    <h5 class="card-title">💵 Ventas Totales</h5>
-                    <h2>$<?= number_format($stats['total_ventas'], 2) ?></h2>
-                    <small><?= $stats['unidades_vendidas'] ?> unidades vendidas</small>
-                </div>
-            </div>
-        </div>
+<div class="card">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead class="table-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($productos as $p): ?>
+                    <tr>
+                        <td><?= $p['ID_Producto'] ?></td>
+                        <td><?= htmlspecialchars($p['Nombre']) ?></td>
+                        <td>
+                            <span class="badge bg-<?= $p['Stock'] < 5 ? 'danger' : 'success' ?>">
+                                <?= $p['Stock'] ?>
+                            </span>
+                        </td>
+                        <td>$<?= number_format($p['Precio'], 2) ?></td>
+                        <td>
+                            <a href="index.php?controller=producto&action=eliminar&id=<?= $p['ID_Producto'] ?>" 
+                               class="btn btn-sm btn-danger"
+                               onclick="return confirm('¿Eliminar este producto?')">
+                                🗑️
+                            </a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+</div>
 
-    <div class="row mt-4">
-        <div class="col-md-6 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">📥 Ingresos</h5>
-                    <h3><?= $stats['ingresos'] ?></h3>
-                    <small>Unidades ingresadas</small>
+<!-- Modal Nuevo Producto -->
+<div class="modal fade" id="modalProducto" tabindex="-1">
+    <div class="modal-dialog">
+        <form method="POST" action="index.php?controller=producto&action=crear" class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Nuevo Producto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label">Nombre:</label>
+                    <input type="text" name="Nombre" class="form-control" required maxlength="50">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Stock inicial:</label>
+                    <input type="number" name="Stock" class="form-control" min="0" value="0" required>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Precio:</label>
+                    <input type="number" name="Precio" class="form-control" step="0.01" min="0" required>
                 </div>
             </div>
-        </div>
-
-        <div class="col-md-6 mb-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">📤 Salidas</h5>
-                    <h3><?= $stats['salidas'] ?></h3>
-                    <small>Unidades retiradas</small>
-                </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="submit" class="btn btn-primary">💾 Guardar</button>
             </div>
-        </div>
-    </div>
-
-    <div class="row mt-4">
-        <div class="col-12">
-            <h3>⚡ Accesos Rápidos</h3>
-            <div class="list-group">
-                <a href="index.php?controller=producto&action=index" class="list-group-item list-group-item-action">📦 Gestionar Productos</a>
-                <a href="index.php?controller=ingreso&action=registrar" class="list-group-item list-group-item-action">📥 Registrar Ingreso</a>
-                <a href="index.php?controller=salida&action=registrar" class="list-group-item list-group-item-action">📤 Registrar Salida</a>
-                <a href="index.php?controller=venta&action=registrar" class="list-group-item list-group-item-action">💰 Registrar Venta</a>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
