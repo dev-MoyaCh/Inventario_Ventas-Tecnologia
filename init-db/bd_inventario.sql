@@ -35,13 +35,7 @@ CREATE TABLE `ingresos` (
   `Fecha_Ingreso` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `ingresos`
---
 
-INSERT INTO `ingresos` (`ID_Ingreso`, `ID_Producto`, `ID_Proveedor`, `Cantidad`, `Fecha_Ingreso`) VALUES
-(1, 5, 2, 15, '2026-06-22 21:32:46'),
-(2, 6, 3, 15, '2026-06-24 21:41:50');
 
 -- --------------------------------------------------------
 
@@ -61,12 +55,26 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`ID_Producto`, `Nombre`, `Stock`, `Precio`) VALUES
-(2, 'Producto B', 5, 200.00),
-(3, 'Laptop HP', 10, 15000.00),
-(4, 'Laptop HP', 10, 15000.00),
-(5, 'Laptop HP', 10, 15000.00),
-(6, 'Laptop HP', 10, 15000.00),
-(7, 'Laptop HP', 10, 15000.00);
+(1, 'Dell Latitude 5540', 1, 18999.99),
+(2, 'HP ProBook 450 G10', 1, 14500.00),
+(3, 'Lenovo ThinkPad E15', 1, 13200.50),
+(4, 'Dell Inspiron 15 3000', 1, 8999.99),
+(5, 'HP Pavilion 14', 1, 16800.00),
+(6, 'Dell OptiPlex 7090', 1, 22500.00),
+(7, 'HP EliteDesk 800 G9', 1, 18900.00),
+(8, 'Lenovo ThinkCentre M70q', 1, 15600.00),
+(9, 'HP ProDesk 400 G9', 1, 12400.00),
+(10, 'Dell UltraSharp U2723QE', 1, 12500.00),
+(11, 'HP E24 G5', 1, 4200.00),
+(12, 'Lenovo ThinkVision T24i-30', 1, 3800.00),
+(13, 'Dell P2422H', 1, 4500.00),
+(14, 'Logitech MX Keys', 1, 2800.00),
+(15, 'Logitech K380', 1, 899.99),
+(16, 'Microsoft Wireless Desktop 900', 1, 1200.00),
+(17, 'Logitech MX Master 3S', 1, 1899.99),
+(18, 'Logitech M720 Triathlon', 1, 999.99),
+(19, 'Samsung SSD 870 EVO 1TB', 1, 1450.00),
+(20, 'WD Blue SN570 500GB', 1, 899.99);
 
 -- --------------------------------------------------------
 
@@ -86,9 +94,11 @@ CREATE TABLE `proveedores` (
 --
 
 INSERT INTO `proveedores` (`ID_Proveedor`, `Razon_Social`, `Correo`, `Numero`) VALUES
-(1, 'Tech Distribuidora SA', 'ventas@tech.com', '5551234567'),
-(2, 'Computación MX', 'info@compmx.com', '5559876543'),
-(3, 'NI IDEA', 'AMOYA@GMAIL.COM', '985685475');
+(1, 'Dell Technologies Perú SAC', 'ventas@dell.com.pe', '987654321'),
+(2, 'HP Perú Distribuidora EIRL', 'contacto@hp.com.pe', '951234567'),
+(3, 'Lenovo Perú Comercial SA', 'ventas@lenovo.com.pe', '962345678'),
+(4, 'Logitech Perú Distribuciones SRL', 'distribucion@logitech.com.pe', '973456789'),
+(5, 'Microsoft Perú Solutions SAC', 'partners@microsoft.com.pe', '984567890');
 
 -- --------------------------------------------------------
 
@@ -105,12 +115,7 @@ CREATE TABLE `salidas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `salidas`
---
 
-INSERT INTO `salidas` (`ID_Salida`, `ID_Producto`, `Cantidad`, `Razon`, `Fecha_Salida`) VALUES
-(1, 5, 5, 'dañado', '2026-06-22 21:33:16'),
-(2, 6, 6, 'dañado', '2026-06-24 21:42:17');
 
 -- --------------------------------------------------------
 
@@ -164,9 +169,6 @@ ALTER TABLE `ventas`
   ADD PRIMARY KEY (`ID_Venta`),
   ADD KEY `ID_Producto` (`ID_Producto`);
 
---
--- AUTO_INCREMENT de las tablas volcadas
---
 
 --
 -- AUTO_INCREMENT de la tabla `ingresos`

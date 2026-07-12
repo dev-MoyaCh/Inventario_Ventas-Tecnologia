@@ -42,7 +42,7 @@ function calcularTotal() {
     const option = producto.options[producto.selectedIndex];
     const precio = parseFloat(option.dataset.precio || 0);
     const cant = parseInt(cantidad.value || 0);
-    total.value = '$' + (precio * cant).toFixed(2);
+    total.value = 'S/' + (precio * cant).toFixed(2);
 }
 
 producto.addEventListener('change', calcularTotal);

@@ -34,14 +34,14 @@
                                 <td><?= date('d/m/Y H:i', strtotime($venta['Fecha_Venta'])) ?></td>
                                 <td><?= htmlspecialchars($venta['ProductoNombre']) ?></td>
                                 <td><span class="badge bg-info text-dark"><?= $venta['Cantidad'] ?> unid.</span></td>
-                                <td><strong>$<?= number_format($venta['Total'], 2) ?></strong></td>
+                                <td><strong>S/<?= number_format($venta['Total'], 2) ?></strong></td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
                     <tfoot class="table-light">
                         <tr>
                             <th colspan="4" class="text-end">Total General:</th>
-                            <th><strong class="text-success">$<?= number_format($totalGeneral, 2) ?></strong></th>
+                            <th><strong class="text-success">S/<?= number_format($totalGeneral, 2) ?></strong></th>
                         </tr>
                     </tfoot>
                 </table>

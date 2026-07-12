@@ -26,7 +26,7 @@
             <div class="card bg-warning text-white">
                 <div class="card-body">
                     <h5 class="card-title">💰 Valor Inventario</h5>
-                    <h2>$<?= number_format($stats['valor_inventario'], 2) ?></h2>
+                    <h2>S/<?= number_format($stats['valor_inventario'], 2) ?></h2>
                     <small>Valor total</small>
                 </div>
             </div>
@@ -36,7 +36,7 @@
             <div class="card bg-info text-white">
                 <div class="card-body">
                     <h5 class="card-title">💵 Ventas Totales</h5>
-                    <h2>$<?= number_format($stats['total_ventas'], 2) ?></h2>
+                    <h2>S/<?= number_format($stats['total_ventas'], 2) ?></h2>
                     <small><?= $stats['unidades_vendidas'] ?> unidades vendidas</small>
                 </div>
             </div>
